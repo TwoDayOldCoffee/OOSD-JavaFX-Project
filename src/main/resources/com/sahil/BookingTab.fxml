@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sahil.controller.BookingController">
+
+    <padding><Insets top="24" bottom="24" left="24" right="24"/></padding>
+
+    <Label text="Book a Room" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <!-- Booking Form -->
+    <VBox spacing="12"
+          style="-fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 16;">
+
+        <Label text="New Booking" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+
+        <GridPane hgap="12" vgap="10">
+
+            <Label text="Select Customer:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <ComboBox fx:id="cmbCustomer" promptText="Choose customer"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="220"/>
+
+            <Label text="Select Room:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <ComboBox fx:id="cmbRoom" promptText="Available rooms"
+                      GridPane.columnIndex="3" GridPane.rowIndex="0" prefWidth="220"/>
+
+            <Label text="Number of Days:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtDays" promptText="e.g. 3"
+                       GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="100"/>
+
+            <Label text="Estimated Cost:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Label fx:id="lblCostPreview" text="Rs. —"
+                   GridPane.columnIndex="3" GridPane.rowIndex="1"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
+
+            <Label fx:id="lblBookingMsg" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                   GridPane.columnSpan="4"/>
+        </GridPane>
+
+        <HBox spacing="10">
+            <Button text="Book Room" onAction="#bookRoom"/>
+            <Button text="Refresh" onAction="#refreshForm"/>
+        </HBox>
+    </VBox>
+
+    <!-- All Bookings Table -->
+    <Label text="All Bookings" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tblBookings" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colBkId"       text="Booking ID"   prefWidth="110"/>
+            <TableColumn fx:id="colBkCustomer" text="Customer"     prefWidth="180"/>
+            <TableColumn fx:id="colBkRoom"     text="Room #"       prefWidth="90"/>
+            <TableColumn fx:id="colBkDays"     text="Days"         prefWidth="80"/>
+            <TableColumn fx:id="colBkTotal"    text="Total (Rs.)"  prefWidth="130"/>
+            <TableColumn fx:id="colBkStatus"   text="Status"       prefWidth="110"/>
+        </columns>
+        <placeholder><Label text="No bookings yet."/></placeholder>
+    </TableView>
+
+</VBox>

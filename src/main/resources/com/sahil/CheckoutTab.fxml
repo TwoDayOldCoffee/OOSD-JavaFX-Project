@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sahil.controller.CheckoutController">
+
+    <padding><Insets top="24" bottom="24" left="24" right="24"/></padding>
+
+    <Label text="Checkout" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <!-- Checkout Form -->
+    <VBox spacing="12"
+          style="-fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 16;">
+
+        <Label text="Process Checkout" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+
+        <GridPane hgap="12" vgap="10">
+
+            <Label text="Select Active Booking:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <ComboBox fx:id="cmbActiveBooking" promptText="Choose booking"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="300"/>
+
+            <Label fx:id="lblCheckoutMsg" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                   GridPane.columnSpan="3"/>
+        </GridPane>
+
+        <HBox spacing="10">
+            <Button text="Checkout" onAction="#checkout"/>
+            <Button text="Refresh" onAction="#refreshCheckout"/>
+        </HBox>
+    </VBox>
+
+    <!-- Active Bookings Table -->
+    <Label text="Active Bookings" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tblActiveBookings" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colChkBkId"      text="Booking ID"  prefWidth="110"/>
+            <TableColumn fx:id="colChkCustomer"  text="Customer"    prefWidth="180"/>
+            <TableColumn fx:id="colChkRoom"      text="Room #"      prefWidth="90"/>
+            <TableColumn fx:id="colChkDays"      text="Days"        prefWidth="80"/>
+            <TableColumn fx:id="colChkTotal"     text="Total (Rs.)" prefWidth="130"/>
+        </columns>
+        <placeholder><Label text="No active bookings."/></placeholder>
+    </TableView>
+
+</VBox>

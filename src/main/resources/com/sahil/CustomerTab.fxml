@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sahil.controller.CustomerController">
+
+    <padding><Insets top="24" bottom="24" left="24" right="24"/></padding>
+
+    <Label text="Customer Management" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <!-- Add Customer Form -->
+    <VBox spacing="12"
+          style="-fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 16;">
+
+        <Label text="Register New Customer" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+
+        <GridPane hgap="12" vgap="10">
+
+            <Label text="Customer Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtCustomerName" promptText="e.g. Rahul Sharma"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200"/>
+
+            <Label text="Contact Number:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtContactNumber" promptText="10-digit number"
+                       GridPane.columnIndex="3" GridPane.rowIndex="0" prefWidth="160"/>
+
+            <Label fx:id="lblCustomerMsg" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                   GridPane.columnSpan="4"/>
+        </GridPane>
+
+        <HBox spacing="10">
+            <Button text="Register Customer" onAction="#addCustomer"/>
+            <Button text="Clear" onAction="#clearCustomerForm"/>
+        </HBox>
+    </VBox>
+
+    <!-- Customers Table -->
+    <Label text="All Customers" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tblCustomers" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colCustomerId"      text="Customer ID"     prefWidth="120"/>
+            <TableColumn fx:id="colCustomerName"    text="Name"            prefWidth="200"/>
+            <TableColumn fx:id="colCustomerContact" text="Contact Number"  prefWidth="160"/>
+        </columns>
+        <placeholder><Label text="No customers registered yet."/></placeholder>
+    </TableView>
+
+</VBox>

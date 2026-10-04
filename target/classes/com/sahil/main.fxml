@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.sahil.controller.MainController">
+
+    <!-- TOP HEADER -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-background-color: #2c3e50; -fx-padding: 12 20 12 20;">
+            <Label text="Hotel Management System"
+                   style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblDate"
+                   style="-fx-text-fill: #bdc3c7; -fx-font-size: 13px;"/>
+        </HBox>
+    </top>
+
+    <!-- MAIN TABS -->
+    <center>
+        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+
+            <Tab text="Dashboard" fx:id="tabDashboard">
+                <fx:include source="DashboardTab.fxml"/>
+            </Tab>
+
+            <Tab text="Rooms" fx:id="tabRooms">
+                <fx:include source="RoomTab.fxml"/>
+            </Tab>
+
+            <Tab text="Customers" fx:id="tabCustomers">
+                <fx:include source="CustomerTab.fxml"/>
+            </Tab>
+
+            <Tab text="Booking" fx:id="tabBooking">
+                <fx:include source="BookingTab.fxml"/>
+            </Tab>
+
+            <Tab text="Checkout" fx:id="tabCheckout">
+                <fx:include source="CheckoutTab.fxml"/>
+            </Tab>
+
+            <Tab text="Billing" fx:id="tabBilling">
+                <fx:include source="BillingTab.fxml"/>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+    <!-- BOTTOM STATUS BAR -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="16"
+              style="-fx-background-color: #ecf0f1; -fx-padding: 5 20 5 20; -fx-border-color: #bdc3c7; -fx-border-width: 1 0 0 0;">
+            <Label text="Hotel Management System v1.0"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblFooterInfo"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
